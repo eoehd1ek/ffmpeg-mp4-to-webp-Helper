@@ -28,7 +28,7 @@ def get_result_file_path(path: str) -> str:
 
 
 def get_ffmpeg_command(path: str) -> str:
-    return f"ffmpeg -i \"{path}\" -vcodec libwebp -lossless 1 -loop 0 -an -vsync 0 \"{get_result_file_path(path)}\""
+    return f"ffmpeg -i \"{path}\" -vcodec libwebp -filter:v fps=fps=24 -loop 0 -q:v 60 -an \"{get_result_file_path(path)}\""
 
 
 def main():
